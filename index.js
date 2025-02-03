@@ -9,6 +9,7 @@ app.get('/api/classify-number?number=371', (req, res) => {
   res.send('Hello World!');
 });
 
-app.get('/*', (req, res) => {
-  res.status(404).send('Hello World!');
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
 });
