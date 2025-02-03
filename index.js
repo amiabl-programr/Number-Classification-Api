@@ -5,7 +5,7 @@ const port = 3000;
 
 app.use(cors());
 
-app.get('/api/classify-number?number=371', (req, res) => {
+app.get('/api/classify-number', (req, res) => {
   res.send('Hello World!');
 });
 
