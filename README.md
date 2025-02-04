@@ -30,3 +30,5 @@ GET http://localhost:3000/api/classify-number?number=28
     "fun_fact": "28 is the second perfect number."
 }
 ```
+## Error Handling
+### Invalid Input (Non-numeric)
