@@ -28,15 +28,18 @@ function isPerfect(num) {
 
   return sum === num;
 }
-function getDigitSum(num) {
-  let sum = 0;
-  while (num > 0) {
-      sum += num % 10;  // Get last digit and add to sum
-      num = Math.floor(num / 10); // Remove last digit
-  }
-  return sum;
-}
 
+function getDigitSum(num) {
+  let numStr = Math.abs(num).toString(); // Convert to string (absolute value)
+  let digits = numStr.split("").map(Number); // Convert to array of digits
+
+  if (digits.length === 0) return 0; // Handle edge cases like empty input
+
+  let firstDigit = num < 0 ? -digits[0] : digits[0]; // Keep first digit negative if num is negative
+  let sumOfRemaining = digits.slice(1).reduce((sum, digit) => sum + digit, 0); // Sum remaining digits
+
+  return firstDigit + sumOfRemaining; // Return total sum
+}
 
 function getProperties(num, text) {
   let properties = [];
