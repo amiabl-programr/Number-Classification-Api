@@ -57,31 +57,36 @@ function getProperties(num, text) {
 
 
 app.get('/api/classify-number', async (req, res) => {
-  const number = parseInt(req.query.number);
+  const numberStr = req.query.number; // Capture input as a string
+  const number = Number(numberStr);   // Convert to a number
 
-
-  // Validate input
-  if (isNaN(number)) {
+  // ✅ Check if input is a valid integer (Reject non-numbers and floats)
+  if (!numberStr || isNaN(number) || !Number.isInteger(number)) {
     return res.status(400).json({
-      number: req.query.number, // Keep original input
-      error: true
+      number: numberStr, // Keep original input
+      error: true,
+      message: "Invalid input. Please provide an integer (e.g., ?number=371)."
     });
   }
 
   const url = `http://numbersapi.com/${number}/math`;
 
-  try {
-    const response = await fetch(url);
-    const fact = await response.text();
 
-    res.json({
-      number: number,
-      is_prime: isPrime(number),
-      is_perfect: isPerfect(number),
-      properties: getProperties(number, fact),
-      digit_sum: getDigitSum(number),
-      fun_fact: fact,
-    });
+  try {
+      
+        const response = await fetch(url);
+        const fact = await response.text();
+    
+        res.json({
+          number: number,
+          is_prime: isPrime(number),
+          is_perfect: isPerfect(number),
+          properties: getProperties(number, fact),
+          digit_sum: getDigitSum(number),
+          fun_fact: fact,
+        });
+      
+    
 
   } catch (error) {
     console.error("Error fetching data:", error);
