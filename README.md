@@ -16,9 +16,9 @@ A simple API that classifies a number based on its mathematical properties.
 GET /api/classify-number?number=371
 ```
 ## Request Example
-```ssh
+
 https://number-classification-api-chi.vercel.app/api/classify-number?number=28
-```
+
 ## Response Example
 ```json
 {
