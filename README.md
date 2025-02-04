@@ -32,3 +32,30 @@ GET http://localhost:3000/api/classify-number?number=28
 ```
 ## Error Handling
 ### Invalid Input (Non-numeric)
+```json
+{
+    "number": "abc",
+    "error": true
+}
+```
+### Server Error (API Failure)
+```json
+{
+    "error": "Error fetching data"
+}
+```
+
+## Setup Instructions
+1. Install dependencies:
+   ```ssh
+   npm install express cors
+   ```
+2. Run the server:
+   ```ssh
+   node api/classify-number.js
+   ```
+3. Open the API in your browser:
+   ```ssh
+   http://localhost:3000/api/classify-number?number=28
+   ```
+   **Note:** Ensure you are on the right port!
