@@ -19,3 +19,14 @@ GET /api/classify-number?number=371
 ```ssh
 GET http://localhost:3000/api/classify-number?number=28
 ```
+## Response Example
+```json
+{
+    "number": 28,
+    "is_prime": false,
+    "is_perfect": true,
+    "properties": ["even"],
+    "digit_sum": 10,
+    "fun_fact": "28 is the second perfect number."
+}
+```
