@@ -57,15 +57,14 @@ function getProperties(num, text) {
 
 
 app.get('/api/classify-number', async (req, res) => {
-  const numberStr = req.query.number; // Capture input as a string
-  const number = Number(numberStr);   // Convert to a number
+  const numberStr = req.query.number; // Initially a string
+  const number = Number(numberStr);  
 
   // ✅ Check if input is a valid integer (Reject non-numbers and floats)
   if (!numberStr || isNaN(number) || !Number.isInteger(number)) {
     return res.status(400).json({
       number: numberStr, // Keep original input
       error: true,
-      message: "Invalid input. Please provide an integer (e.g., ?number=371)."
     });
   }
 
