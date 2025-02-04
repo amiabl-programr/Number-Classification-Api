@@ -17,7 +17,7 @@ GET /api/classify-number?number=371
 ```
 ## Request Example
 ```ssh
-GET http://localhost:3000/api/classify-number?number=28
+https://number-classification-api-chi.vercel.app/api/classify-number?number=28
 ```
 ## Response Example
 ```json
