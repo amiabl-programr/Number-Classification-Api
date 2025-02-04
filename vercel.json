@@ -5,5 +5,13 @@
             "src": "api/classify-number.js",
             "use": "@vercel/node"
         }
-    ]
+    ],
+    "routes": [
+        {
+         
+          "src": "/api/classify-number.js",
+          
+          "dest": "/api/classify-number.js"
+        }
+      ]
 }
